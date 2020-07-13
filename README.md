@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
 
 ## Install CLI angular for deploy app
-First install angular CLI, visit  https://cli.angular.io/
+First install angular CLI, visit  https://cli.angular.io/ and Node Version >= v12.15.0
 
 ## Run application in localhost
 To run the application use the following command `ng serve -o`
