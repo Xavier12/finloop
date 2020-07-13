@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
-import { Observable, of } from 'rxjs';
+import { Login } from '../../models/login.model';
 
 export interface Credentials {
   id: string;
@@ -29,7 +29,7 @@ export class LoginService {
     }
   }
 
-  login(userCredentials: any) {
+  login(userCredentials: Login) {
     return this.http.post(`${environment.serviceUrl}login`, userCredentials, this.httpOptions)
     .pipe(
       map((response: any) => {
@@ -37,8 +37,8 @@ export class LoginService {
           return undefined;
         }
         this._credentials = {
-          id       : response && response.id,
-          jwt      : response && response.jwt,
+          id: response && response.id,
+          jwt: response && response.jwt,
         };
         this.setCredentials(this._credentials, true);
 
@@ -63,7 +63,7 @@ export class LoginService {
     }
   }
 
-    get credentials(): Credentials | null {
+  get credentials(): Credentials | null {
     return this._credentials;
   }
 

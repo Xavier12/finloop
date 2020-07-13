@@ -29,9 +29,9 @@ export class UsersComponent implements OnInit {
   }
 
   refreshTable(): void {
+    this.dataSource.data = [];
     this.userService.getUser()
     .subscribe(userList => {
-      console.log(userList)
       this.dataSource.data = userList;
     },
     err => {
