@@ -1,5 +1,9 @@
-<div>
-  <button mat-raised-button color="primary" (click)="newUser()">Agregar usuario</button><br>
+<div class="container">
+  <div class="header-container">
+    <button mat-raised-button color="primary" (click)="newUser()">Agregar usuario</button><br>
+    <img src="../../assets/logo.jpeg" alt="Finloop" height="36px"> 
+  </div>
+  <br>
   <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Email Column -->
     <ng-container matColumnDef="email">
