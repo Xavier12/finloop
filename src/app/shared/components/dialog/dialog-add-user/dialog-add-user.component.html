@@ -1,0 +1,47 @@
+<h1 mat-dialog-title class="d-flex justify-content-between">
+    Nuevo usuario
+    <a mat-icon-button (click)="closeDialog()">
+        <i class="material-icons">close</i>
+    </a>
+</h1>
+<div mat-dialog-content>
+  <form [formGroup]="formNewUser" (ngSubmit)="saveNewUser()">
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="full-input">
+                    <input matInput formControlName="username" placeholder="Nombre" type="text">
+                    <mat-error *ngIf="formNewUser.controls['username'].errors && formNewUser.controls['username'].touched">
+                        <span *ngIf="formNewUser.controls['username'].errors.required">Usuario es requerido</span>
+                        <span *ngIf="formNewUser.controls['username'].errors.pattern">Campo inválido</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="full-input">
+                    <input matInput formControlName="email" placeholder="Email" type="text">
+                    <mat-error *ngIf="formNewUser.controls['email'].errors && formNewUser.controls['email'].touched">
+                        <span *ngIf="formNewUser.controls['email'].errors.required">Email es requerido</span>
+                        <span *ngIf="formNewUser.controls['email'].errors.pattern">Campo inválido</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="full-input">
+                    <input matInput formControlName="password" placeholder="Password" type="password">
+                    <mat-error *ngIf="formNewUser.controls['password'].errors && formNewUser.controls['password'].touched">
+                        <span *ngIf="formNewUser.controls['password'].errors.required">Contraseña es requerido</span>
+                        <span *ngIf="formNewUser.controls['password'].errors.pattern">Campo inválido</span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-right">
+                <button class="mr-2" mat-raised-button color="primary" [disabled]="formNewUser.invalid || isLoading">                
+                    Guardar
+                </button>
+            </div>
+        </div>
+        <br>
+  </form>
+</div>
